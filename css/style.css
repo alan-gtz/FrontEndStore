@@ -1,0 +1,261 @@
+:root{
+    --primario: #9C27B0;
+    --primarioOscuro: #89119D;
+    --secundario: #FFCE00;
+    --secundarioOscuro: rgb(233,287,2);
+    --blanco: #FFF;
+    --negro: #000;
+
+    --fuentePrincipal: "Staatliches", sans-serif;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit; /* NO DEBE DE FALTAR EN NINGUN HTML */
+}
+
+/* ------------------------- GLOBALES ------------------------- */
+body{
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5; /* Interlineado */
+}
+
+p{
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    width: 100%;
+}
+
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto 0 auto
+}
+
+h1, h2, h3{
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+}
+
+h1{
+    font-size: 4rem;
+}
+
+h2{
+    font-size: 3.2rem;
+}
+
+h3{
+    font-size: 2.4rem;
+}
+
+/* HEADER */
+.header{
+    display: flex;
+    justify-content: center; /* Para centrar horizontalente */
+}
+
+.header_logo{
+    margin: 3rem 0 3rem 0;
+}
+
+/* FOOTER */
+.footer{
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0 1rem 0;
+    margin-top: 2rem;
+
+}
+
+.footer_texto{
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    font-size: 2.2rem;
+}
+
+/* NAVEGACION */
+.navegacion{
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0 1rem 0;
+    display: flex;
+    justify-content: center;
+    /* gap: 3rem; */ /* Habilitando FlexBox, para separar cada uno de los elementos en 2rem */ /* FORMA NUEVA */
+
+}
+
+.navegacion_enlace{
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 3rem;
+    margin-right: 3rem; /* FORMA VIEJA */
+}
+
+.navegacion_enlace:last-of-type{ /* Selecciona el ultimo enlace */
+    margin-right: 0;
+}
+
+.navegacion_enlace-activo, /* Queda fijo depende la pestaña en la que estamos */
+.navegacion_enlace:hover{ /* Solo cuando pasamos el cursor por ahi cambia de color */
+    color: var(--secundario);
+}
+
+/* GRID */
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* PRODUCTOS */
+.producto{
+    background-color: var(--primarioOscuro);
+    padding: 2rem;
+}
+
+.producto_nombre{
+    font-size: 4rem;
+}
+
+.producto_precio{
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+
+.producto_nombre,
+.producto_precio{
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* GRAFICO */
+.grafico{
+    min-height: 30rem;
+    background-repeat: no-repeat; /* PARA QUE NO SE REPITA EN EL MISMO CUADRO LA IMAGEN */
+    background-size: cover; /* PARA QUE ABARQUE EL ESPACIO (DISPONIBLE) QUE SE LE ASIGNA A LA IMAGEN  */
+    grid-column: 1 / 3;
+}
+
+.grafico-camisas{
+    grid-row: 2 / 3;
+    background-image: url(../img/grafico1.jpg);
+}
+
+.grafico-node{
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 8 / 9;
+}
+
+@media (min-width: 768px) {
+    .grafico-node{
+        grid-row: 5 / 6;
+        grid-column: 2 / 4 ;
+    }    
+}
+
+/* NOSOTROS */
+.nosotros{
+    display: grid;
+    grid-template-rows: auto auto;/* PARA DIVIDIR EN 2 PARTES IGUALES VERTICALMENTE */
+}
+
+@media (min-width: 768px) {
+    .nosotros{
+        grid-template-columns:1fr 1fr;
+        column-gap: 2rem; /* PARA DEFINIR EL ESPACIO ENTRE COLUMNAS */
+    }
+}
+
+.nosotros_imagen{
+    grid-row: 1 / 2;
+}
+
+@media (min-width: 768px) {
+    .nosotros_imagen{
+        grid-column: 2 / 3;
+    }
+}
+
+/* BLOQUES */
+.bloques{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .bloques{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.bloque{
+    text-align: center;
+}
+
+.bloque_titulo{
+    margin: 0;
+}
+
+/* PAGINA DEL PRODUCTO */
+@media (min-width: 768px) {
+    .camisa{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem; /* PARA LA SEPARACION ENTRE LAS COLUMNAS */
+    }
+}
+
+.formulario{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.formulario_campo{
+    border-color: var(--primarioOscuro);
+    border-width: 1rem;
+    border-style: solid;
+    background-color: transparent;
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+}
+
+.formulario_submit{
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    transition: background-color .3s ease; /* Para que hga una transicion de color en el tiempon que se le da, puede usarse tambien con el "font-size" */
+    grid-column: 1 / 3;
+}
+
+.formulario_submit:hover{
+    font-size: 2.4rem;
+    cursor: pointer; /* PARA CUANDO PASEMOS POR AHI EL CURSOR PONGA LA MANITA */
+    background-color: var(--secundarioOscuro); /* PARA CUANDO PASEMOS EL CURSOR POR AHI CAMBIE DE COLOR */
+}
